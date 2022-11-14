@@ -10,7 +10,7 @@ class LinkedList {
         if (this.head == null) {
             this.head = newNode;
         }
-        
+
         else {
             current = this.head;
 
@@ -42,6 +42,23 @@ class LinkedList {
 
         return count;
     }
+
+    heads() {
+        let current = this.head;
+        return current;
+    }
+
+    tails() {
+        let current = this.head;
+
+        while (current != null) {
+            current = current.nextNode;
+            
+            if (current.nextNode == null) {
+                return current;
+            }
+        }
+    }
 }
 
 class Node {
@@ -66,3 +83,6 @@ Link1.prepend('good');
 console.log (Link1.size());
 
 console.log (Link1);
+
+console.log (Link1.heads());
+console.log (Link1.tails());
