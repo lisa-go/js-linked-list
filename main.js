@@ -5,11 +5,12 @@ class LinkedList {
 
     append(value) {
         const newNode = new Node(value);
-        var current;
+        let current;
 
         if (this.head == null) {
             this.head = newNode;
         }
+        
         else {
             current = this.head;
 
@@ -28,6 +29,18 @@ class LinkedList {
         this.head = newNode;
         
         return this;
+    }
+
+    size() {
+        let current = this.head;
+        let count = 0;
+
+        while (current != null) {
+            count++;
+            current = current.nextNode;
+        }
+
+        return count;
     }
 }
 
@@ -50,5 +63,6 @@ console.log (Node1)
 Link1 = new LinkedList(Node1);
 Link1.append('hello');
 Link1.prepend('good');
+console.log (Link1.size());
 
 console.log (Link1);
