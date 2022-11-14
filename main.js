@@ -95,6 +95,32 @@ class LinkedList {
         }
         return;  
     }
+
+    contains(value) {
+        let current = this.head;
+
+        while (current != null) {
+            if (current.value == value) {
+                return true;
+            }
+            current = current.nextNode;
+        }
+        return false;
+    }
+
+    find(value) {
+        let current = this.head;
+        let count = 0;
+
+        while (current != null) {
+            if (current.value == value) {
+            return count;
+            }
+            count++;
+            current = current.nextNode;
+        }
+        return null;
+    }
 }
 
 class Node {
@@ -123,7 +149,8 @@ console.log (Link1);
 console.log (Link1.heads());
 console.log (Link1.tails());
 
-console.log (Link1.at(3)); */
+console.log (Link1.at(3));
 
-Link1.pop();
-console.log (Link1);
+Link1.pop(); */
+
+console.log (Link1.find('firefly'));
