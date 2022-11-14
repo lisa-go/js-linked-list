@@ -59,6 +59,42 @@ class LinkedList {
             }
         }
     }
+
+    at(index) {
+        let current = this.head;
+        let count = 0;
+
+        while (current != null) {
+            current = current.nextNode;
+            count++;
+            if (count == index) {
+                return current;
+            }
+        }
+
+        return this.head;
+    }
+
+    pop() {
+        if (this.head == null) {
+            return undefined;
+        }
+        else if (this.head == this.tail) {
+            this.head = null;
+            this.tail = null;
+        }
+        else {
+            let temp = this.head;
+            let pre = this.head;
+            while (temp.nextNode) {
+                pre = temp;
+                temp = temp.nextNode;
+            }
+            this.tail = pre;
+            this.tail.nextNode = null;
+        }
+        return;  
+    }
 }
 
 class Node {
@@ -68,21 +104,26 @@ class Node {
     }
 }
 
-Node1 = new Node('poop');
-Node2 = new Node('pee');
-Node3 = new Node('wha');
+Node1 = new Node('ant');
+Node2 = new Node('bee');
+Node3 = new Node('cat');
 
 Node1.nextNode = Node2;
 Node2.nextNode = Node3;
 
-console.log (Node1)
+//console.log (Node1)
 
 Link1 = new LinkedList(Node1);
-Link1.append('hello');
-Link1.prepend('good');
-console.log (Link1.size());
+Link1.append('dog');
+Link1.prepend('elephant');
+/* console.log (Link1.size());
 
 console.log (Link1);
 
 console.log (Link1.heads());
 console.log (Link1.tails());
+
+console.log (Link1.at(3)); */
+
+Link1.pop();
+console.log (Link1);
