@@ -18,13 +18,16 @@ class LinkedList {
             }
 
             current.nextNode = newNode;
+            return this;
         }
     }
 
     prepend(value) {
         const newNode = new Node(value);
-
-        if (this.head = value)  
+        newNode.nextNode = this.head;
+        this.head = newNode;
+        
+        return this;
     }
 }
 
@@ -46,5 +49,6 @@ console.log (Node1)
 
 Link1 = new LinkedList(Node1);
 Link1.append('hello');
+Link1.prepend('good');
 
 console.log (Link1);
