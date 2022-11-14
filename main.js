@@ -121,6 +121,22 @@ class LinkedList {
         }
         return null;
     }
+
+    toString() {
+        let current = this.head;
+        let display = [];
+
+        while (current != null) {
+            display.push(current.value);
+            current = current.nextNode;
+
+            if (current == null) {
+                display.push('null');
+            }
+        }
+
+        return display.join(' -> ') ;
+    }
 }
 
 class Node {
@@ -133,24 +149,11 @@ class Node {
 Node1 = new Node('ant');
 Node2 = new Node('bee');
 Node3 = new Node('cat');
-
 Node1.nextNode = Node2;
 Node2.nextNode = Node3;
 
-//console.log (Node1)
 
 Link1 = new LinkedList(Node1);
 Link1.append('dog');
 Link1.prepend('elephant');
-/* console.log (Link1.size());
 
-console.log (Link1);
-
-console.log (Link1.heads());
-console.log (Link1.tails());
-
-console.log (Link1.at(3));
-
-Link1.pop(); */
-
-console.log (Link1.find('firefly'));
